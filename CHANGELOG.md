@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/GergoNagy94/github-actions-demo/compare/v1.0.0...v1.1.0) (2025-06-02)
+
+
+### Features
+
+* **terragrunt:** add iam role ([1f75cbf](https://github.com/GergoNagy94/github-actions-demo/commit/1f75cbfd7516f4ab02aeb7905737a3fbf807cf90))
+
 # 1.0.0 (2025-06-02)
 
 
