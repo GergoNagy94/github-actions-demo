@@ -73,15 +73,15 @@ jobs:
           terraform_version: 1.9.8
 
       - name: Terragrunt Validate
-        working-directory: infrastructure/live
+        working-directory: infrastructure/live/vpc
         run: terragrunt validate --all
 
       - name: Terragrunt Plan
-        working-directory: infrastructure/live
+        working-directory: infrastructure/live/vpc
         run: terragrunt plan -out=tfplan
 
       - name: Upload Terraform Plan
         uses: actions/upload-artifact@v4
         with:
           name: tfplan
-          path: live/tfplan
+          path: infrastructure/live/vpc/tfplan
