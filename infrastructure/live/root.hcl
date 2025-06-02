@@ -7,10 +7,9 @@ remote_state {
   config = {
     bucket         = "gergo-actions-demo-bucket"
     key            = "${path_relative_to_include()}/terraform.tfstate"
-    region         = "${local.region}"
+    region         = "eu-central-1"
     encrypt        = true
     dynamodb_table = "gergo-actions-demo-lock"
-    role_arn      = "arn:aws:iam::940482431327:role/terragrunt-execution"
 
     s3_bucket_tags = {
       Name        = "gergo-actions-demo-bucket"
@@ -31,6 +30,7 @@ generate "provider" {
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 provider "aws" {
-  region = "${local.region}"}
+  region    = "eu-central-1"
+}
 EOF
 }

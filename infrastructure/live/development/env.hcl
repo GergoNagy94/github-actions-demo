@@ -2,7 +2,6 @@ locals {
     global_vars = read_terragrunt_config(find_in_parent_folders("globals.hcl"))
 
     project     = local.global_vars.locals.project
-    region      = local.global_vars.locals.region
     account_id  = local.global_vars.locals.development_account_id
     env         = "development"
 
@@ -18,8 +17,8 @@ locals {
     vpc_create_egress_only_igw           = true
     vpc_enable_dns_hostnames             = true
     vpc_enable_dns_support               = true
-    region                               = "eu-west-2"
-    availability_zone                    = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+    region                               = "eu-central-1"
+    availability_zone                    = ["eu-central-1a", "eu-central-1b"]
 
     # Tags
     tags = {
