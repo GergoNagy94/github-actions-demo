@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/GergoNagy94/github-actions-demo/compare/v1.1.1...v1.1.2) (2025-06-02)
+
+
+### Bug Fixes
+
+* **terragrunt:** fix path to live ([4e59c02](https://github.com/GergoNagy94/github-actions-demo/commit/4e59c02f7e4893c4215229e34021f40c07ae6c21))
+
 ## [1.1.1](https://github.com/GergoNagy94/github-actions-demo/compare/v1.1.0...v1.1.1) (2025-06-02)
 
 
