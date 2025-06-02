@@ -1,0 +1,91 @@
+name: Terragrunt Validate & Plan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terragrunt:
+    runs-on: ubuntu-latest
+    environment: development
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Commit Message Lint
+        run: |
+          npx commitlint --from=HEAD~${{ github.event.pull_request.commits || 1 }} --to=HEAD --verbose
+
+      - name: PR Title Lint
+        if: github.event_name == 'pull_request'
+        uses: amannn/action-semantic-pull-request@v5
+        with:
+          types: |
+            feat
+            fix
+            docs
+            chore
+            style
+            refactor
+            test
+            ci
+          requireScope: true
+          validateSingleCommit: true
+          validateSingleCommitMatchesPrTitle: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.AWS_ROLE_NAME }}
+          aws-region: eu-west-2
+          role-duration-seconds: 900
+
+      - name: Verify AWS Identity
+        run: aws sts get-caller-identity
+
+      - name: Install Terragrunt
+        run: |
+          curl -sLo terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.55.19/terragrunt_linux_amd64
+          chmod +x terragrunt && sudo mv terragrunt /usr/local/bin/
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.8
+
+      - name: Terraform Format Check
+        working-directory: live
+        run: terraform fmt -check -recursive
+
+      - name: Terragrunt Validate
+        working-directory: live
+        run: terragrunt validate --all
+
+      - name: Terragrunt Plan
+        working-directory: live
+        run: terragrunt plan -out=tfplan
+
+      - name: Upload Terraform Plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: live/tfplan
