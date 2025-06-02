@@ -10,6 +10,7 @@ remote_state {
     region         = "${local.region}"
     encrypt        = true
     dynamodb_table = "gergo-actions-demo-lock"
+    role_arn      = "arn:aws:iam::940482431327:role/terragrunt-execution"
 
     s3_bucket_tags = {
       Name        = "gergo-actions-demo-bucket"
