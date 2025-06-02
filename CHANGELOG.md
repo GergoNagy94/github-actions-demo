@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/GergoNagy94/github-actions-demo/compare/v1.1.4...v1.1.5) (2025-06-02)
+
+
+### Bug Fixes
+
+* **actions:** add terragrunt action ([eab05d6](https://github.com/GergoNagy94/github-actions-demo/commit/eab05d6b0a83238cfed6ea74e54bd565920d910d))
+
 ## [1.1.4](https://github.com/GergoNagy94/github-actions-demo/compare/v1.1.3...v1.1.4) (2025-06-02)
 
 
