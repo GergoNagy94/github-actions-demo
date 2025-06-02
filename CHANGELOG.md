@@ -1,0 +1,7 @@
+# 1.0.0 (2025-06-02)
+
+
+### Bug Fixes
+
+* **actions:** allocate configs to root ([f6f32b7](https://github.com/GergoNagy94/github-actions-demo/commit/f6f32b72fb4c9423151e767a794ebfb52139cb33))
+* **actions:** change npm ci to install ([6bf86a8](https://github.com/GergoNagy94/github-actions-demo/commit/6bf86a8fb4628e8f359775233940e4ce6e2d2d57))
