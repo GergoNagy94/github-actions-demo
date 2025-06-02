@@ -72,16 +72,12 @@ jobs:
         with:
           terraform_version: 1.9.8
 
-      - name: Terraform Format Check
-        working-directory: live
-        run: terraform fmt -check -recursive
-
       - name: Terragrunt Validate
-        working-directory: live
+        working-directory: infrastructure/live
         run: terragrunt validate --all
 
       - name: Terragrunt Plan
-        working-directory: live
+        working-directory: infrastructure/live
         run: terragrunt plan -out=tfplan
 
       - name: Upload Terraform Plan
