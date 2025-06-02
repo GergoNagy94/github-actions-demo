@@ -13,6 +13,6 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm ci
+      - run: npm install
 
       - run: npx commitlint --from=HEAD~${{ github.event.pull_request.commits || 1 }} --to=HEAD --verbose
