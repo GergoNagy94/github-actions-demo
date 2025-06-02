@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/GergoNagy94/github-actions-demo/compare/v1.1.3...v1.1.4) (2025-06-02)
+
+
+### Bug Fixes
+
+* **actions:** terragrunt workdir refactor ([4f47b71](https://github.com/GergoNagy94/github-actions-demo/commit/4f47b71a04c1209c712600fa49bebdb2c904e0c6))
+
 ## [1.1.3](https://github.com/GergoNagy94/github-actions-demo/compare/v1.1.2...v1.1.3) (2025-06-02)
 
 
