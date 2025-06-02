@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/GergoNagy94/github-actions-demo/compare/v1.1.2...v1.1.3) (2025-06-02)
+
+
+### Bug Fixes
+
+* **terragrunt:** fix terragrunt basic config ([9c81dff](https://github.com/GergoNagy94/github-actions-demo/commit/9c81dff8ee8be5df31724268d79bb3807064e560))
+
 ## [1.1.2](https://github.com/GergoNagy94/github-actions-demo/compare/v1.1.1...v1.1.2) (2025-06-02)
 
 
